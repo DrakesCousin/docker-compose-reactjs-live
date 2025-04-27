@@ -5,6 +5,9 @@ set -e
 : "${branch:=main}"
 : "${github_token:?Need github_token}"
 
+SRC_DIR=dist
+DST_DIR=build
+
 cat > ~/.netrc <<EOF
 machine github.com
 login $github_token
@@ -18,11 +21,24 @@ fi
 git fetch origin "$branch"
 git reset --hard "origin/$branch"
 
-bun install
-bun update
-bun build
+if ! bun install; then
+  echo "⚠️ bun install failed – cleaning cache & retrying"
+  rm -rf node_modules .bun bun.lockb
+  bun cache clean
+  bun install
+fi
+bun run build
 
-rm -rf /usr/share/nginx/html/*
-cp -r build/* /usr/share/nginx/html/
+if [ ! -d "$SRC_DIR" ]; then
+  echo "❌ Source directory '$SRC_DIR' not found!" >&2
+  exit 1
+fi
+if [ -d "$DST_DIR" ]; then
+  rm -rf "$DST_DIR"
+fi
 
-ginx -g 'daemon off;'
+mkdir -p "$DST_DIR"
+cp -a "$SRC_DIR"/. "$DST_DIR"/
+echo "✅ Copied '$SRC_DIR' → '$DST_DIR'"
+
+nginx -g 'daemon off;'
