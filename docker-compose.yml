@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  frontend:
+    build: .
+    env_file:
+      - .env
+    environment:
+      - BRANCH
+    ports:
+      - "80:80"
+    volumes:
+      - app-data:/app
+      - ./nginx/logs:/var/log/nginx
+    restart: unless-stopped
+
+volumes:
+  app-data:
