@@ -4,7 +4,7 @@ services:
     env_file:
       - .env
     ports:
-      - "80:80"
+      - "7000:80"
     volumes:
       - app-data:/app
       - ./nginx/logs:/var/log/nginx
