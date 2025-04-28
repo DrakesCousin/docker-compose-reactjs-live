@@ -5,7 +5,7 @@ Requires=docker.service
 
 [Service]
 WorkingDirectory=/root/docker-compose-reactjs-live
-ExecStart=/usr/local/bin/docker-compose up -d
+ExecStart=/usr/local/bin/docker-compose up
 ExecStop=/usr/local/bin/docker-compose down
 Restart=always
 User=root
