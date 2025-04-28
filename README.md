@@ -57,6 +57,19 @@ docker-compose restart frontend
 
 This pulls, rebuilds, and reloads automatically.
 
+**More commands:**
+
+```
+docker compose up -d --build
+docker ps
+docker logs docker-compose-reactjs-live-frontend-1
+docker run -it docker-compose-reactjs-live-frontend /bin/sh
+```
+
+```
+docker-compose down
+docker-compose up -d
+```
 ## Notes
 
 - **Env file:** Now contains both repo_url and github_token (plus optional branch), keeping credentials and URLs out of Compose.
