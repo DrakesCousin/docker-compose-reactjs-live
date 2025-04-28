@@ -92,6 +92,17 @@ sudo ufw status
 sudo systemctl restart docker
 ```
 
+**System Startup:**
+
+```
+sudo nano /etc/systemd/system/docker-compose-app.service
+sudo cp docker-compose-app.service /etc/systemd/system/docker-compose-app.service
+sudo systemctl daemon-reload
+sudo systemctl enable docker-compose-app
+sudo systemctl start docker-compose-app
+sudo systemctl status docker-compose-app
+```
+
 ## Notes
 
 - **Env file:** Now contains both repo_url (plus optional branch), keeping credentials and URLs out of Compose.
