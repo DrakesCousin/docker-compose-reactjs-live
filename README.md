@@ -76,8 +76,20 @@ docker run --env-file .env -it docker-compose-reactjs-live-frontend /bin/sh
 
 ```
 docker stop $(docker ps -aq)
+docker rm $(docker ps -aq)
 docker compose down
 docker-compose down --volumes --rmi all
+```
+
+**Config Firewall:**
+
+```
+sudo ufw status
+sudo ufw allow 80/tcp
+sudo ufw allow 9011/tcp
+sudo ufw enable
+sudo ufw status
+sudo systemctl restart docker
 ```
 
 ## Notes
