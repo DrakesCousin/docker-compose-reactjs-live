@@ -99,7 +99,9 @@ sudo nano /etc/systemd/system/docker-compose-app.service
 sudo cp docker-compose-app.service /etc/systemd/system/docker-compose-app.service
 sudo systemctl daemon-reload
 sudo systemctl enable docker-compose-app
+sudo systemctl stop docker-compose-app
 sudo systemctl start docker-compose-app
+sudo systemctl restart docker-compose-app
 sudo systemctl status docker-compose-app
 ```
 
