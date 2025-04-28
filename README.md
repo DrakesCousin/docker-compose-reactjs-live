@@ -63,7 +63,7 @@ This pulls, rebuilds, and reloads automatically.
 docker compose up -d --build
 docker ps
 docker logs docker-compose-reactjs-live-frontend-1
-docker run -it docker-compose-reactjs-live-frontend /bin/sh
+docker run --env-file .env -it docker-compose-reactjs-live-frontend /bin/sh
 ```
 
 ```
