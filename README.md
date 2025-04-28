@@ -33,7 +33,6 @@ Copy `.env.example` to `.env`:
 Edit `.env` and set:
 
 ```
-github_token=ghp_<YOUR_TOKEN>
 repo_url=https://github.com/your-username/your-private-repo.git
 branch=main
 ```
@@ -41,7 +40,7 @@ branch=main
 ## Usage
 
 - Create an empty folder `nginx/logs`.
-- Copy `.env.example` to `.env` and set your `github_token` and `repo_url` (and `branch` if desired).
+- Copy `.env.example` to `.env` and `repo_url` (and `branch` if desired).
 
 **Launch:**
 
@@ -81,7 +80,7 @@ docker compose up -d
 
 ## Notes
 
-- **Env file:** Now contains both repo_url and github_token (plus optional branch), keeping credentials and URLs out of Compose.
+- **Env file:** Now contains both repo_url (plus optional branch), keeping credentials and URLs out of Compose.
 - **Git auth:** entrypoint.sh uses Netrc to authenticate.
 - **Persistence:** Named volume app-data retains the cloned repo.
 - **Logs:** Nginx logs map to ./nginx/logs for easy access.

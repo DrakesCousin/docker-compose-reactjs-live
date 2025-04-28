@@ -7,5 +7,4 @@ services:
       - "80:80"
     volumes:
       - ./nginx/logs:/var/log/nginx
-      - ./entrypoint.sh:/entrypoint.sh
     restart: unless-stopped

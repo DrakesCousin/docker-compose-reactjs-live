@@ -3,17 +3,22 @@ set -e
 
 : "${repo_url:?Need repo_url (HTTPS URL)}"
 : "${branch:=main}"
-: "${github_token:?Need github_token}"
 
 SRC_DIR=dist
 DST_DIR=build
 
-auth_repo_url=$(echo "$repo_url" | sed "s|https://|https://x-access-token:${github_token}@|")
-echo "$auth_repo_url"
-
 if [ ! -d /app ]; then
   mkdir /app
-  git clone --branch "$branch" "$auth_repo_url" /app
+fi
+
+if [ ! -d /app/.git ]; then
+  git clone --branch "$branch" "$repo_url" /app
+fi
+
+if [ ! -d /app/build ]; then
+  mkdir -p /app/build
+else
+  rm -rf /app/build
 fi
 
 cd /app
