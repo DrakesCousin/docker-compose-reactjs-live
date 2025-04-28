@@ -8,7 +8,6 @@ ENV APP_DIR=/app
 RUN mkdir -p $APP_DIR/build
 WORKDIR $APP_DIR
 
-COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 RUN sed -i 's/\r$//' /entrypoint.sh
 

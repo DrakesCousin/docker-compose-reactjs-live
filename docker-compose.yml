@@ -6,9 +6,6 @@ services:
     ports:
       - "80:80"
     volumes:
-      - app-data:/app
       - ./nginx/logs:/var/log/nginx
+      - ./entrypoint.sh:/entrypoint.sh
     restart: unless-stopped
-
-volumes:
-  app-data:

@@ -8,14 +8,15 @@ set -e
 SRC_DIR=dist
 DST_DIR=build
 
-auth_repo_url=$(echo "$repo_url" | sed "s|https://|https://$github_token@|")
+auth_repo_url=$(echo "$repo_url" | sed "s|https://|https://x-access-token:${github_token}@|")
+echo "$auth_repo_url"
 
-if [ ! -d /tmp/app ]; then
-  mkdir /tmp/app
-  git clone --branch "$branch" "$auth_repo_url" /tmp/app
+if [ ! -d /app ]; then
+  mkdir /app
+  git clone --branch "$branch" "$auth_repo_url" /app
 fi
 
-cd /tmp/app
+cd /app
 
 git fetch origin "$branch"
 git reset --hard "origin/$branch"
