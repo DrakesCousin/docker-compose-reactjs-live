@@ -9,6 +9,9 @@ ExecStart=/usr/local/bin/docker-compose up -d
 ExecStop=/usr/local/bin/docker-compose down
 Restart=always
 User=root
+StandardOutput=append:/var/log/docker-compose-app.log
+StandardError=append:/var/log/docker-compose-app-error.log
+SyslogIdentifier=docker-compose-app
 
 [Install]
 WantedBy=multi-user.target
