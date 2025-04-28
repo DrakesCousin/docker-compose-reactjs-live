@@ -60,6 +60,7 @@ This pulls, rebuilds, and reloads automatically.
 
 ```
 docker compose up -d --build
+docker compose up -d
 docker compose build --no-cache
 ```
 
@@ -74,8 +75,9 @@ docker run --env-file .env -it docker-compose-reactjs-live-frontend /bin/sh
 **Down and delete:**
 
 ```
+docker stop $(docker ps -aq)
 docker compose down
-docker compose up -d
+docker-compose down --volumes --rmi all
 ```
 
 ## Notes
