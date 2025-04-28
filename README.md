@@ -46,13 +46,13 @@ branch=main
 **Launch:**
 
 ```bash
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
 **To deploy updates:**
 
 ```bash
-docker-compose restart frontend
+docker compose restart frontend
 ```
 
 This pulls, rebuilds, and reloads automatically.
