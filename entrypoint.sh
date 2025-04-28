@@ -8,15 +8,14 @@ set -e
 SRC_DIR=dist
 DST_DIR=build
 
-cat > ~/.netrc <<EOF
-machine github.com
-login $github_token
-EOF
-chmod 600 ~/.netrc
+auth_repo_url=$(echo "$repo_url" | sed "s|https://|https://$github_token@|")
 
-if [ ! -d .git ]; then
-  git clone "$repo_url" .
+if [ ! -d /tmp/app ]; then
+  mkdir /tmp/app
+  git clone --branch "$branch" "$auth_repo_url" /tmp/app
 fi
+
+cd /tmp/app
 
 git fetch origin "$branch"
 git reset --hard "origin/$branch"
